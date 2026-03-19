@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisanth Web Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --forest:#0D2B1F;
+  --forest2:#1A4332;
+  --moss:#2D6A4F;
+  --sage:#52B788;
+  --sage2:#95D5B2;
+  --sage3:#D8F3DC;
+  --sky:#1B3A5C;
+  --sky2:#2D5F8A;
+  --sky3:#74B3CE;
+  --sky4:#C7E9F5;
+  --cream:#F9F7F2;
+  --parchment:#F2EDE3;
+  --line:#D4E8DC;
+  --ink:#0D1F17;
+  --ink2:#2E4A38;
+  --ink3:#607D6A;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:62px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;
+  background:rgba(249,247,242,0.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{
+  font-family:var(--fd);font-size:19px;font-weight:400;color:var(--forest);
+  letter-spacing:0.3px;
+}
+.nav-logo span{
+  font-size:8px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--ink3);font-family:var(--fb);font-weight:300;
+  display:block;margin-top:1px;
+}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  font-size:10px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink3);text-decoration:none;font-weight:400;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--forest)}
+.nav-cta{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
+  color:var(--cream);background:var(--forest);border:none;
+  padding:9px 22px;cursor:pointer;font-family:var(--fb);
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--moss)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  padding-top:62px;
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  background:var(--forest);
+  padding:100px 72px 80px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-floral{
+  position:absolute;bottom:-40px;right:-60px;
+  opacity:0.07;pointer-events:none;
+}
+.hero-tag{
+  font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--sage2);font-weight:400;margin-bottom:28px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--sage)}
+.hero-h1{
+  font-family:var(--fd);font-size:68px;font-weight:300;line-height:1.0;
+  color:#fff;margin-bottom:28px;letter-spacing:-0.5px;
+}
+.hero-h1 em{font-style:italic;color:var(--sage2)}
+.hero-sub{
+  font-size:13.5px;color:rgba(255,255,255,0.52);line-height:1.85;
+  max-width:360px;margin-bottom:52px;font-weight:300;
+}
+.hero-actions{display:flex;align-items:center;gap:28px}
+.btn-primary{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
+  color:var(--forest);background:var(--sage2);border:none;
+  padding:14px 32px;cursor:pointer;font-family:var(--fb);
+  transition:background .2s,transform .15s;
+}
+.btn-primary:hover{background:#B7E4C7;transform:translateY(-1px)}
+.btn-ghost{
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:400;
+  color:rgba(255,255,255,0.45);background:none;border:none;cursor:pointer;
+  font-family:var(--fb);border-bottom:1px solid rgba(255,255,255,0.15);
+  padding-bottom:2px;transition:color .2s;
+}
+.btn-ghost:hover{color:rgba(255,255,255,0.8)}
+.hero-stats{
+  position:absolute;bottom:48px;left:72px;
+  display:flex;gap:44px;
+}
+.hstat strong{
+  font-family:var(--fd);font-size:32px;font-weight:300;color:var(--sage2);
+  display:block;line-height:1;
+}
+.hstat span{
+  font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);font-weight:300;
+}
+
+/* Hero right — botanical illustration panel */
+.hero-right{
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-right-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--sage3) 0%,#E8F4F8 60%,var(--sky4) 100%);
+  opacity:0.5;
+}
+.hero-botanical-svg{
+  position:relative;z-index:1;
+  width:380px;height:500px;
+}
+
+/* ── DIVIDER LINE ── */
+.div-strip{
+  background:var(--forest2);
+  padding:20px 52px;
+  display:flex;align-items:center;justify-content:center;gap:40px;
+  overflow:hidden;
+}
+.div-strip-text{
+  font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--sage2);font-weight:400;white-space:nowrap;
+}
+.div-strip-line{width:1px;height:18px;background:rgba(255,255,255,0.1)}
+
+/* ── SECTION SHARED ── */
+.section{padding:110px 72px}
+.sec-label{
+  font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--moss);font-weight:500;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.sec-label::before{content:'';width:22px;height:1px;background:var(--sage2)}
+.sec-title{
+  font-family:var(--fd);font-size:48px;font-weight:300;color:var(--ink);
+  line-height:1.08;margin-bottom:18px;
+}
+.sec-title em{font-style:italic;color:var(--moss)}
+
+/* ── WORK SECTION ── */
+.work{background:var(--cream);padding:110px 0 0}
+.work-intro{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:end;padding:0 72px 72px;
+}
+.work-intro-body{
+  font-size:13.5px;color:var(--ink3);line-height:1.85;
+  font-weight:300;padding-top:20px;
+  border-top:1px solid var(--line);
+}
+
+/* ── DESIGN CARDS ── */
+.design-card{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:620px;
+}
+.dc-odd{direction:ltr}
+.dc-even{direction:rtl}
+.dc-even > *{direction:ltr}
+
+.dc-visual{
+  position:relative;overflow:hidden;cursor:pointer;
+}
+.dc-visual-inner{
+  position:absolute;inset:0;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.dc-visual:hover .dc-visual-inner{transform:scale(1.03)}
+
+/* Card 1 — sage/sky */
+.dc1-bg{background:linear-gradient(145deg,#C8E6C9 0%,#B3D9CC 40%,#A8D4E8 100%)}
+/* Card 2 — warm parchment/rose */
+.dc2-bg{background:linear-gradient(145deg,#F5EDD8 0%,#EDD9C0 40%,#DFC4B0 100%)}
+
+.dc-mockup{
+  position:absolute;inset:0;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:0;
+}
+.dc-screen{
+  width:82%;
+  border-radius:6px 6px 0 0;
+  overflow:hidden;
+  box-shadow:0 -12px 60px rgba(13,43,31,.16),0 -4px 16px rgba(13,43,31,.08);
+  transform:translateY(20px);
+  transition:transform .5s ease;
+}
+.dc-visual:hover .dc-screen{transform:translateY(8px)}
+.dc-bar{
+  height:30px;background:#E5E2DC;
+  display:flex;align-items:center;padding:0 12px;gap:8px;
+}
+.dc-dot{width:9px;height:9px;border-radius:50%}
+.dc-dot-r{background:#FF6058}
+.dc-dot-y{background:#FEBC2E}
+.dc-dot-g{background:#28C840}
+.dc-url{
+  flex:1;background:rgba(255,255,255,.65);border-radius:3px;
+  font-size:9px;color:#888;font-family:var(--fb);
+  padding:3px 8px;margin-left:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.dc-preview{height:400px;overflow:hidden}
+
+/* Mini previews */
+.mp{width:100%;height:100%;font-family:var(--fb);font-size:0}
+
+/* Layout 3 mini */
+.mp3{background:#FAF8F4}
+.mp3-nav{
+  height:36px;background:#FAF8F4;border-bottom:1px solid #E8E4DC;
+  display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+}
+.mp3-logo{font-family:var(--fd);font-size:10px;color:#1C2B1E}
+.mp3-links{display:flex;gap:10px}
+.mp3-links span{font-size:5.5px;letter-spacing:1.5px;text-transform:uppercase;color:#8a9a8c}
+.mp3-btn{font-size:5.5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:3px 8px}
+.mp3-hero{display:grid;grid-template-columns:45% 55%;height:170px}
+.mp3-hl{background:#FAF8F4;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.mp3-tag{font-size:5px;letter-spacing:2px;text-transform:uppercase;color:#C4877A;margin-bottom:6px}
+.mp3-h1{font-family:var(--fd);font-size:16px;line-height:1.1;color:#1C2B1E;margin-bottom:6px}
+.mp3-h1 em{font-style:italic;color:#C4877A}
+.mp3-p{font-size:5.5px;color:#8a9a8c;line-height:1.6;margin-bottom:8px}
+.mp3-cta{font-size:5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:4px 10px;display:inline-block}
+.mp3-hr{background:linear-gradient(135deg,#b8d4ba,#a8c8d4)}
+.mp3-bar{height:1px;background:#E8E4DC;margin:0}
+.mp3-trust{display:grid;grid-template-columns:repeat(4,1fr);height:28px;background:#F2EFE8;border-bottom:1px solid #E8E4DC}
+.mp3-ti{border-right:1px solid #E8E4DC;display:flex;align-items:center;padding:0 8px;gap:4px;font-size:5px;color:#547060}
+.mp3-ti:last-child{border-right:none}
+.mp3-feat{display:grid;grid-template-columns:1fr 1fr}
+.mp3-fi{background:linear-gradient(160deg,#b8ccc0,#a0c0b8);height:100px}
+.mp3-fc{background:#F2EFE8;padding:10px 12px;height:100px;display:flex;flex-direction:column;justify-content:center}
+.mp3-fn{font-family:var(--fd);font-size:11px;color:#1C2B1E}
+.mp3-fd{font-size:5px;color:#8a9a8c;line-height:1.5;margin:4px 0 8px}
+.mp3-fp{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E8E4DC;padding-top:6px}
+.mp3-price{font-family:var(--fd);font-size:11px;color:#1C2B1E}
+.mp3-ab{font-size:5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:3px 7px}
+.mp3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#E8E4DC;padding:2px}
+.mp3-pc{background:#F2EFE8}
+.mp3-pcimg{height:44px}
+.mp3-pca{background:linear-gradient(160deg,#a0bcaa,#b4c8c0)}
+.mp3-pcb{background:linear-gradient(160deg,#d4c090,#c0a878)}
+.mp3-pcc{background:linear-gradient(160deg,#a8b0a4,#889890)}
+.mp3-pci{padding:5px 6px;border-top:1px solid #E8E4DC}
+.mp3-pcn{font-family:var(--fd);font-size:7px;color:#1C2B1E}
+.mp3-pcp{font-size:5px;color:#547060;font-weight:500}
+
+/* Layout 4 mini */
+.mp4{background:#FAF8F4}
+.mp4-nav{
+  height:36px;background:#FAF8F4;border-bottom:1px solid #E8E4DC;
+  display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+}
+.mp4-logo{font-family:var(--fd);font-size:10px;color:#1C2B1E}
+.mp4-links{display:flex;gap:10px}
+.mp4-links span{font-size:5.5px;letter-spacing:1.5px;text-transform:uppercase;color:#8a9a8c}
+.mp4-btn{font-size:5.5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:3px 8px}
+.mp4-hero{display:grid;grid-template-columns:45% 55%;height:170px}
+.mp4-hl{background:#FAF8F4;padding:16px;display:flex;flex-direction:column;justify-content:center}
+.mp4-tag{font-size:5px;letter-spacing:2px;text-transform:uppercase;color:#C4877A;margin-bottom:6px}
+.mp4-h1{font-family:var(--fd);font-size:15px;line-height:1.08;color:#1C2B1E;margin-bottom:6px}
+.mp4-h1 em{font-style:italic;color:#C4877A}
+.mp4-p{font-size:5.5px;color:#8a9a8c;line-height:1.6;margin-bottom:8px}
+.mp4-cta{font-size:5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:4px 10px;display:inline-block}
+.mp4-hr{background:linear-gradient(135deg,#c8b09a,#b49880);position:relative}
+.mp4-vt{position:absolute;bottom:8px;left:8px;background:rgba(250,248,244,.9);font-size:4.5px;letter-spacing:1px;text-transform:uppercase;color:#3a4d3c;padding:2px 5px}
+.mp4-feat{display:grid;grid-template-columns:1fr 1fr}
+.mp4-fi{background:linear-gradient(160deg,#c8b498,#b09880);height:110px}
+.mp4-fc{background:#F0EDE5;padding:10px 12px;height:110px;display:flex;flex-direction:column;justify-content:center}
+.mp4-bignum{font-family:var(--fd);font-size:22px;color:#E0D8CC;line-height:1;margin-bottom:-4px}
+.mp4-fn{font-family:var(--fd);font-size:11px;color:#1C2B1E}
+.mp4-fs{font-size:4.5px;letter-spacing:1px;text-transform:uppercase;color:#8a9a8c;margin-bottom:4px}
+.mp4-fd{font-size:5px;color:#8a9a8c;line-height:1.5;margin-bottom:8px}
+.mp4-ff{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E0D8CC;padding-top:6px}
+.mp4-price{font-family:var(--fd);font-size:11px;color:#1C2B1E}
+.mp4-ab{font-size:5px;letter-spacing:1px;text-transform:uppercase;background:#1C2B1E;color:white;padding:3px 7px}
+.mp4-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#D8D0C4;padding:2px}
+.mp4-pc{background:#F0EDE5}
+.mp4-pcimg{height:44px}
+.mp4-pca{background:linear-gradient(160deg,#c8b0a0,#b49080)}
+.mp4-pcb{background:linear-gradient(160deg,#ddc890,#c4a870)}
+.mp4-pcc{background:linear-gradient(160deg,#b8b0a8,#a09890)}
+.mp4-pci{padding:5px 6px;border-top:1px solid #E0D8CC}
+.mp4-pcn{font-family:var(--fd);font-size:7px;color:#1C2B1E}
+.mp4-pcp{font-size:5px;color:#7A5244;font-weight:500}
+
+/* ── CARD INFO PANEL ── */
+.dc-info{
+  padding:72px 64px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+}
+.dc1-info{background:var(--cream)}
+.dc2-info{background:var(--parchment)}
+.dc-num{
+  font-family:var(--fd);font-size:96px;font-weight:300;
+  line-height:0.85;color:var(--line);
+  margin-bottom:-8px;display:block;
+}
+.dc2-info .dc-num{color:rgba(196,150,120,0.18)}
+.dc-name{
+  font-family:var(--fd);font-size:38px;font-weight:300;color:var(--ink);
+  margin-bottom:6px;
+}
+.dc-name em{font-style:italic;color:var(--moss)}
+.dc2-info .dc-name em{color:#9B6B4A}
+.dc-palette{
+  display:flex;gap:6px;margin-bottom:20px;margin-top:4px;
+}
+.dc-swatch{width:16px;height:16px;border-radius:50%}
+.dc-desc{
+  font-size:13px;color:var(--ink3);line-height:1.85;
+  font-weight:300;margin-bottom:32px;max-width:380px;
+}
+.dc-features{
+  display:flex;flex-direction:column;gap:10px;margin-bottom:40px;
+}
+.dc-feat{
+  display:flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--ink3);font-weight:400;
+}
+.dc-feat-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--sage);flex-shrink:0;
+}
+.dc2-info .dc-feat-dot{background:#C4877A}
+.dc-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
+  color:var(--cream);background:var(--forest);border:none;
+  padding:14px 28px;cursor:pointer;font-family:var(--fb);
+  text-decoration:none;transition:background .2s,gap .2s;
+}
+.dc-cta:hover{background:var(--moss);gap:16px}
+.dc-cta svg{transition:transform .2s}
+.dc-cta:hover svg{transform:translateX(3px)}
+.dc2-info .dc-cta{background:#4A2E20}
+.dc2-info .dc-cta:hover{background:#6B4030}
+
+/* hover overlay on visual */
+.dc-hover{
+  position:absolute;inset:0;
+  background:rgba(13,43,31,0.0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s;z-index:10;
+}
+.dc-visual:hover .dc-hover{background:rgba(13,43,31,0.35)}
+.dc-hover-pill{
+  opacity:0;transform:translateY(8px);
+  background:rgba(255,255,255,0.95);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--forest);padding:12px 24px;font-family:var(--fb);font-weight:500;
+  display:flex;align-items:center;gap:8px;
+  transition:opacity .3s,transform .3s;
+}
+.dc-visual:hover .dc-hover-pill{opacity:1;transform:translateY(0)}
+
+/* ── ABOUT ── */
+.about{
+  background:var(--forest);
+  padding:110px 72px;
+  display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.about-bg-floral{
+  position:absolute;right:-80px;top:-60px;
+  opacity:0.04;pointer-events:none;
+}
+.about-label{
+  font-size:8.5px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--sage);font-weight:400;margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.about-label::before{content:'';width:22px;height:1px;background:var(--sage)}
+.about-h2{
+  font-family:var(--fd);font-size:48px;font-weight:300;color:#fff;
+  line-height:1.05;margin-bottom:24px;
+}
+.about-h2 em{font-style:italic;color:var(--sage2)}
+.about-body{
+  font-size:13.5px;color:rgba(255,255,255,0.5);line-height:1.9;
+  font-weight:300;margin-bottom:36px;
+}
+.about-skills{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.skill-item{
+  padding:22px 24px;
+  background:var(--forest);
+}
+.skill-item:hover{background:var(--forest2)}
+.skill-num{
+  font-family:var(--fd);font-size:28px;font-weight:300;
+  color:var(--sage2);margin-bottom:2px;line-height:1;
+}
+.skill-label{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);font-weight:300;
+}
+
+/* right col */
+.about-right{position:relative;z-index:1}
+.about-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  padding:36px 36px 32px;
+  margin-bottom:2px;
+}
+.about-card-label{
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--sage);margin-bottom:14px;font-weight:400;
+}
+.about-card-text{
+  font-family:var(--fd);font-size:18px;font-style:italic;
+  color:rgba(255,255,255,0.7);line-height:1.6;
+}
+.about-tools{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;
+}
+.tool-tag{
+  font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:5px 12px;font-weight:300;
+}
+
+/* ── CONTACT ── */
+.contact{
+  background:var(--cream);
+  padding:110px 72px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.contact-h2{
+  font-family:var(--fd);font-size:52px;font-weight:300;color:var(--ink);
+  line-height:1.05;margin-bottom:20px;
+}
+.contact-h2 em{font-style:italic;color:var(--moss)}
+.contact-body{
+  font-size:13.5px;color:var(--ink3);line-height:1.85;
+  font-weight:300;margin-bottom:36px;
+}
+.contact-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:9.5px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
+  color:var(--cream);background:var(--forest);border:none;
+  padding:16px 36px;cursor:pointer;font-family:var(--fb);
+  text-decoration:none;transition:background .2s;
+}
+.contact-btn:hover{background:var(--moss)}
+.contact-right{
+  border-left:1px solid var(--line);
+  padding-left:80px;
+}
+.contact-detail{
+  display:flex;flex-direction:column;gap:24px;
+}
+.cd-item{
+  display:flex;align-items:flex-start;gap:16px;
+}
+.cd-icon{
+  width:36px;height:36px;border:1px solid var(--line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  margin-top:2px;
+}
+.cd-icon svg{width:14px;height:14px;stroke:var(--moss);fill:none;stroke-width:1.4}
+.cd-label{
+  font-size:8.5px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--ink3);font-weight:400;margin-bottom:3px;
+}
+.cd-value{
+  font-family:var(--fd);font-size:16px;color:var(--ink);
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--forest);
+  padding:40px 72px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.footer-brand{
+  font-family:var(--fd);font-size:16px;color:rgba(255,255,255,0.6);
+}
+.footer-brand em{font-style:italic;color:var(--sage2)}
+.footer-copy{
+  font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1px;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);text-decoration:none;
+  transition:color .2s;font-weight:300;
+}
+.footer-links a:hover{color:var(--sage2)}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:80px 28px 100px}
+  .hero-h1{font-size:48px}
+  .hero-stats{left:28px;bottom:36px}
+  .div-strip{padding:16px 24px;flex-wrap:wrap;gap:16px}
+  .work-intro{grid-template-columns:1fr;gap:24px;padding:0 28px 56px}
+  .design-card{grid-template-columns:1fr}
+  .dc-even{direction:ltr}
+  .dc-info{padding:48px 28px}
+  .dc-num{font-size:60px}
+  .dc-name{font-size:28px}
+  .about{grid-template-columns:1fr;padding:80px 28px;gap:48px}
+  .contact{grid-template-columns:1fr;padding:80px 28px;gap:40px}
+  .contact-right{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:40px}
+  footer{padding:32px 24px;flex-direction:column;gap:16px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Kisanth
+    <span>Web Design & Development</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <!-- background floral watermark -->
+    <svg class="hero-floral" width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="210" cy="210" r="170" stroke="white" stroke-width=".6"/>
+      <path d="M210 40 Q240 120 210 210 Q180 120 210 40Z" stroke="white" stroke-width=".5" fill="none"/>
+      <path d="M380 210 Q300 240 210 210 Q300 180 380 210Z" stroke="white" stroke-width=".5" fill="none"/>
+      <path d="M210 380 Q180 300 210 210 Q240 300 210 380Z" stroke="white" stroke-width=".5" fill="none"/>
+      <path d="M40 210 Q120 180 210 210 Q120 240 40 210Z" stroke="white" stroke-width=".5" fill="none"/>
+      <path d="M313 107 Q260 160 210 210 Q196 145 313 107Z" stroke="rgba(149,213,178,0.6)" stroke-width=".5" fill="none"/>
+      <path d="M313 313 Q260 260 210 210 Q275 196 313 313Z" stroke="rgba(149,213,178,0.6)" stroke-width=".5" fill="none"/>
+      <path d="M107 313 Q160 260 210 210 Q224 275 107 313Z" stroke="rgba(149,213,178,0.6)" stroke-width=".5" fill="none"/>
+      <path d="M107 107 Q160 160 210 210 Q145 224 107 107Z" stroke="rgba(149,213,178,0.6)" stroke-width=".5" fill="none"/>
+      <circle cx="210" cy="210" r="8" stroke="white" stroke-width=".7" fill="none"/>
+      <circle cx="210" cy="40" r="4" fill="rgba(149,213,178,0.5)"/>
+      <circle cx="380" cy="210" r="4" fill="rgba(149,213,178,0.5)"/>
+      <circle cx="210" cy="380" r="4" fill="rgba(149,213,178,0.5)"/>
+      <circle cx="40" cy="210" r="4" fill="rgba(149,213,178,0.5)"/>
+    </svg>
+    <p class="hero-tag">Portfolio — Web Design</p>
+    <h1 class="hero-h1">Crafting <em>digital</em><br>spaces that<br>feel <em>alive</em></h1>
+    <p class="hero-sub">Two e-commerce layouts designed for Blue Garden Soaps — a botanical skincare brand rooted in Ontario craft. Each a distinct visual world, both built to production quality.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View the Work</button>
+      <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">About me ↓</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <strong>2</strong>
+        <span>Layouts built</span>
+      </div>
+      <div class="hstat">
+        <strong>1</strong>
+        <span>Brand</span>
+      </div>
+      <div class="hstat">
+        <strong>100%</strong>
+        <span>Custom code</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <!-- Large botanical SVG illustration -->
+    <svg class="hero-botanical-svg" viewBox="0 0 380 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main stem -->
+      <path d="M190 480 Q184 360 196 220 Q202 110 188 30" stroke="#2D6A4F" stroke-width="1.6" fill="none" opacity="0.5"/>
+      <!-- Left branches -->
+      <path d="M193 410 Q145 385 100 358" stroke="#2D6A4F" stroke-width="1.2" fill="none" opacity="0.45"/>
+      <path d="M100 358 Q76 342 82 315 Q88 288 112 298 Q136 308 128 334 Q120 360 100 355" stroke="#2D6A4F" stroke-width="1" fill="none" opacity="0.4"/>
+      <path d="M194 330 Q154 310 118 298" stroke="#2D6A4F" stroke-width="1.2" fill="none" opacity="0.45"/>
+      <path d="M118 298 Q95 289 90 265 Q85 241 108 238 Q131 235 130 259 Q129 283 110 288" stroke="#2D6A4F" stroke-width="1" fill="none" opacity="0.4"/>
+      <path d="M192 250 Q162 235 136 222" stroke="#2D6A4F" stroke-width="1.2" fill="none" opacity="0.45"/>
+      <path d="M136 222 Q117 212 116 192 Q115 172 136 172 Q157 172 154 192 Q151 212 133 215" stroke="#2D6A4F" stroke-width="1" fill="none" opacity="0.4"/>
+      <!-- Right branches -->
+      <path d="M196 370 Q244 348 286 330" stroke="#1B3A5C" stroke-width="1.2" fill="none" opacity="0.35"/>
+      <path d="M286 330 Q307 320 312 298 Q317 276 294 276 Q271 276 274 298 Q277 320 297 324" stroke="#1B3A5C" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M197 290 Q242 270 280 255" stroke="#1B3A5C" stroke-width="1.2" fill="none" opacity="0.35"/>
+      <path d="M280 255 Q300 245 305 224 Q310 203 288 202 Q266 201 267 222 Q268 243 287 247" stroke="#1B3A5C" stroke-width="1" fill="none" opacity="0.3"/>
+      <path d="M195 210 Q235 194 268 178" stroke="#1B3A5C" stroke-width="1.2" fill="none" opacity="0.35"/>
+      <path d="M268 178 Q286 168 290 148 Q294 128 273 128 Q252 128 253 148 Q254 168 272 172" stroke="#1B3A5C" stroke-width="1" fill="none" opacity="0.3"/>
+      <!-- Top leaf -->
+      <path d="M190 80 Q174 55 178 30 Q182 8 198 10 Q214 12 210 36 Q206 60 192 78" stroke="#2D6A4F" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <!-- Leaf fills - sage -->
+      <ellipse cx="100" cy="338" rx="28" ry="18" fill="#52B788" opacity="0.12" transform="rotate(-20 100 338)"/>
+      <ellipse cx="112" cy="264" rx="24" ry="16" fill="#52B788" opacity="0.12" transform="rotate(-15 112 264)"/>
+      <ellipse cx="132" cy="194" rx="22" ry="14" fill="#52B788" opacity="0.12" transform="rotate(-10 132 194)"/>
+      <!-- Leaf fills - sky -->
+      <ellipse cx="296" cy="304" rx="24" ry="14" fill="#74B3CE" opacity="0.12" transform="rotate(20 296 304)"/>
+      <ellipse cx="290" cy="226" rx="22" ry="13" fill="#74B3CE" opacity="0.12" transform="rotate(15 290 226)"/>
+      <ellipse cx="274" cy="152" rx="20" ry="12" fill="#74B3CE" opacity="0.12" transform="rotate(10 274 152)"/>
+      <!-- Small flower dots -->
+      <circle cx="100" cy="358" r="5" fill="#52B788" opacity="0.25"/>
+      <circle cx="112" cy="282" r="4" fill="#52B788" opacity="0.2"/>
+      <circle cx="130" cy="208" r="4" fill="#52B788" opacity="0.2"/>
+      <circle cx="294" cy="318" r="4" fill="#74B3CE" opacity="0.2"/>
+      <circle cx="286" cy="242" r="4" fill="#74B3CE" opacity="0.18"/>
+      <circle cx="270" cy="166" r="3" fill="#74B3CE" opacity="0.18"/>
+      <!-- Rose accent flowers -->
+      <circle cx="188" cy="30" r="7" fill="#95D5B2" opacity="0.3"/>
+      <circle cx="188" cy="30" r="3" fill="#2D6A4F" opacity="0.3"/>
+      <!-- Small detail leaves scattered -->
+      <path d="M155 450 Q148 435 152 422 Q156 410 164 414 Q172 418 168 430 Q164 442 156 448" stroke="#2D6A4F" stroke-width=".8" fill="none" opacity="0.25"/>
+      <path d="M230 440 Q238 425 244 428 Q250 432 246 444 Q242 456 232 454" stroke="#2D6A4F" stroke-width=".8" fill="none" opacity="0.2"/>
+      <path d="M60 250 Q50 238 54 226 Q58 214 66 218 Q74 222 70 234 Q66 246 62 248" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity="0.2"/>
+      <path d="M320 180 Q330 168 336 172 Q342 176 338 188 Q334 200 324 198" stroke="#1B3A5C" stroke-width=".8" fill="none" opacity="0.2"/>
+    </svg>
+  </div>
+</section>
+
+<!-- DIVIDER STRIP -->
+<div class="div-strip">
+  <span class="div-strip-text">Blue Garden Soaps</span>
+  <div class="div-strip-line"></div>
+  <span class="div-strip-text">Ontario, Canada</span>
+  <div class="div-strip-line"></div>
+  <span class="div-strip-text">Botanical Skincare</span>
+  <div class="div-strip-line"></div>
+  <span class="div-strip-text">Two Layouts · One Brand</span>
+  <div class="div-strip-line"></div>
+  <span class="div-strip-text">HTML · CSS · Pure Code</span>
+  <div class="div-strip-line"></div>
+  <span class="div-strip-text">Responsive · Production Ready</span>
+</div>
+
+<!-- WORK -->
+<section class="work" id="work">
+  <div class="work-intro">
+    <div class="reveal">
+      <p class="sec-label">Selected Work</p>
+      <h2 class="sec-title">Two visions,<br>one <em>brand</em></h2>
+    </div>
+    <div class="reveal reveal-d1">
+      <p class="work-intro-body">Both layouts were designed from the ground up — independent colour systems, typographic pairings, and layout logic. No templates. Each one a complete, responsive, production-ready e-commerce experience.</p>
+    </div>
+  </div>
+
+  <!-- DESIGN CARD 1 -->
+  <div class="design-card dc-odd">
+    <div class="dc-visual" onclick="window.open('https://kisanthk.github.io/Layout-3/','_blank')">
+      <div class="dc-visual-inner dc1-bg">
+        <div class="dc-mockup">
+          <div class="dc-screen">
+            <div class="dc-bar">
+              <div class="dc-dot dc-dot-r"></div>
+              <div class="dc-dot dc-dot-y"></div>
+              <div class="dc-dot dc-dot-g"></div>
+              <div class="dc-url">kisanthk.github.io/Layout-3/</div>
+            </div>
+            <div class="dc-preview">
+              <div class="mp mp3">
+                <div class="mp3-nav">
+                  <div class="mp3-logo">Blue Garden Soaps</div>
+                  <div class="mp3-links"><span>Shop</span><span>Collections</span><span>Our Story</span><span>Ingredients</span></div>
+                  <div class="mp3-btn">Shop Now</div>
+                </div>
+                <div class="mp3-hero">
+                  <div class="mp3-hl">
+                    <div class="mp3-tag">Blue Gardens Soap</div>
+                    <div class="mp3-h1">Handcrafted soap,<br>grown with <em>intention</em></div>
+                    <div class="mp3-p">Small-batch botanical soap crafted in Ontario. Every ingredient chosen with care, every bar cured for six weeks.</div>
+                    <div class="mp3-cta">Explore the collection →</div>
+                  </div>
+                  <div class="mp3-hr"></div>
+                </div>
+                <div class="mp3-trust">
+                  <div class="mp3-ti">🌿 Natural</div>
+                  <div class="mp3-ti">⏱ 6-Week Cure</div>
+                  <div class="mp3-ti">📦 Free Ship</div>
+                  <div class="mp3-ti">♻ Zero Waste</div>
+                </div>
+                <div class="mp3-feat">
+                  <div class="mp3-fi"></div>
+                  <div class="mp3-fc">
+                    <div class="mp3-fn">Rose & Clay Bar</div>
+                    <div class="mp3-fd">Our best-selling bar — gentle exfoliation with rose clay and calming lavender.</div>
+                    <div class="mp3-fp">
+                      <span class="mp3-price">$14.00</span>
+                      <span class="mp3-ab">Add to Cart</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mp3-grid">
+                  <div class="mp3-pc"><div class="mp3-pcimg mp3-pca"></div><div class="mp3-pci"><div class="mp3-pcn">Mint & Charcoal</div><div class="mp3-pcp">$12.00</div></div></div>
+                  <div class="mp3-pc"><div class="mp3-pcimg mp3-pcb"></div><div class="mp3-pci"><div class="mp3-pcn">Oat & Honey</div><div class="mp3-pcp">$13.00</div></div></div>
+                  <div class="mp3-pc"><div class="mp3-pcimg mp3-pcc"></div><div class="mp3-pci"><div class="mp3-pcn">Cedar & Pine</div><div class="mp3-pcp">$12.00</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dc-hover">
+        <div class="dc-hover-pill">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11L11 2M11 2H5M11 2v6" stroke="#0D2B1F" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Open Live Site
+        </div>
+      </div>
+    </div>
+    <div class="dc-info dc1-info reveal">
+      <span class="dc-num">01</span>
+      <h3 class="dc-name">Garden <em>Serenity</em></h3>
+      <div class="dc-palette">
+        <div class="dc-swatch" style="background:#FAF8F4;border:1px solid #e8e4dc"></div>
+        <div class="dc-swatch" style="background:#547060"></div>
+        <div class="dc-swatch" style="background:#8a9a8c"></div>
+        <div class="dc-swatch" style="background:#C4877A"></div>
+        <div class="dc-swatch" style="background:#1C2B1E"></div>
+      </div>
+      <p class="dc-desc">A clean, editorial layout built around earthy cream tones with rose accents. Full-bleed split hero, featured product showcase, botanical ingredient section, and gallery grid — all built in pure HTML & CSS with no frameworks.</p>
+      <div class="dc-features">
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Split-panel video hero</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Featured product hero section</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Ingredient showcase grid</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Gallery with hover captions</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Customer review cards</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Email signup section</div>
+      </div>
+      <a href="https://kisanthk.github.io/Layout-3/" target="_blank" class="dc-cta">
+        View Live Design
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11L11 2M11 2H5M11 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- DESIGN CARD 2 -->
+  <div class="design-card dc-even" style="margin-top:2px;">
+    <div class="dc-info dc2-info reveal">
+      <span class="dc-num">02</span>
+      <h3 class="dc-name">Botanical <em>Luxury</em></h3>
+      <div class="dc-palette">
+        <div class="dc-swatch" style="background:#FAF8F4;border:1px solid #e8e4dc"></div>
+        <div class="dc-swatch" style="background:#F0EDE5"></div>
+        <div class="dc-swatch" style="background:#C4877A"></div>
+        <div class="dc-swatch" style="background:#8a9a8c"></div>
+        <div class="dc-swatch" style="background:#1C2B1E"></div>
+      </div>
+      <p class="dc-desc">A warmer, apothecary-inspired aesthetic. The same brand, a completely different visual language — parchment tones, a mosaic product grid with hover reveals, scrolling marquee, and a floating story card. Same brand, entirely different feel.</p>
+      <div class="dc-features">
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Asymmetric mosaic product grid</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Photo-heavy split hero</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Scrolling trust marquee</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Float-over story card</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Dark footer with sage accents</div>
+        <div class="dc-feat"><div class="dc-feat-dot"></div>Fully responsive mobile layout</div>
+      </div>
+      <a href="https://kisanthk.github.io/Layout-4/" target="_blank" class="dc-cta">
+        View Live Design
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11L11 2M11 2H5M11 2v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+    <div class="dc-visual" onclick="window.open('https://kisanthk.github.io/Layout-4/','_blank')">
+      <div class="dc-visual-inner dc2-bg">
+        <div class="dc-mockup">
+          <div class="dc-screen">
+            <div class="dc-bar">
+              <div class="dc-dot dc-dot-r"></div>
+              <div class="dc-dot dc-dot-y"></div>
+              <div class="dc-dot dc-dot-g"></div>
+              <div class="dc-url">kisanthk.github.io/Layout-4/</div>
+            </div>
+            <div class="dc-preview">
+              <div class="mp mp4">
+                <div class="mp4-nav">
+                  <div class="mp4-logo">Blue Garden Soaps</div>
+                  <div class="mp4-links"><span>Shop</span><span>Collections</span><span>Our Story</span><span>Gift Sets</span></div>
+                  <div class="mp4-btn">Shop Now</div>
+                </div>
+                <div class="mp4-hero">
+                  <div class="mp4-hl">
+                    <div class="mp4-tag">Blue Gardens Soap</div>
+                    <div class="mp4-h1">Grown from<br>the <em>garden,</em><br>made by hand</div>
+                    <div class="mp4-p">Small-batch botanical soap crafted in Ontario. Every ingredient chosen with care.</div>
+                    <div class="mp4-cta">Explore the collection →</div>
+                  </div>
+                  <div class="mp4-hr">
+                    <div class="mp4-vt">● Harvested this season</div>
+                  </div>
+                </div>
+                <div class="mp4-feat">
+                  <div class="mp4-fi"></div>
+                  <div class="mp4-fc">
+                    <div class="mp4-bignum">01</div>
+                    <div class="mp4-fn">Rose & Clay Bar</div>
+                    <div class="mp4-fs">Rose · Clay · Lavender</div>
+                    <div class="mp4-fd">Cold-pressed in small batches. Gentle exfoliation, deeply nourishing.</div>
+                    <div class="mp4-ff">
+                      <span class="mp4-price">$14.00</span>
+                      <span class="mp4-ab">Add to Cart</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="mp4-grid">
+                  <div class="mp4-pc"><div class="mp4-pcimg mp4-pca"></div><div class="mp4-pci"><div class="mp4-pcn">Mint & Charcoal</div><div class="mp4-pcp">$12.00</div></div></div>
+                  <div class="mp4-pc"><div class="mp4-pcimg mp4-pcb"></div><div class="mp4-pci"><div class="mp4-pcn">Oat & Honey</div><div class="mp4-pcp">$13.00</div></div></div>
+                  <div class="mp4-pc"><div class="mp4-pcimg mp4-pcc"></div><div class="mp4-pci"><div class="mp4-pcn">Cedar & Pine</div><div class="mp4-pcp">$12.00</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dc-hover">
+        <div class="dc-hover-pill">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 11L11 2M11 2H5M11 2v6" stroke="#0D2B1F" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Open Live Site
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <svg class="about-bg-floral" width="500" height="500" viewBox="0 0 500 500" fill="none">
+    <circle cx="250" cy="250" r="200" stroke="white" stroke-width=".5"/>
+    <path d="M250 50 Q280 150 250 250 Q220 150 250 50Z" stroke="white" stroke-width=".4" fill="none"/>
+    <path d="M450 250 Q350 280 250 250 Q350 220 450 250Z" stroke="white" stroke-width=".4" fill="none"/>
+    <path d="M250 450 Q220 350 250 250 Q280 350 250 450Z" stroke="white" stroke-width=".4" fill="none"/>
+    <path d="M50 250 Q150 220 250 250 Q150 280 50 250Z" stroke="white" stroke-width=".4" fill="none"/>
+  </svg>
+  <div class="reveal">
+    <p class="about-label">About</p>
+    <h2 class="about-h2">Design that<br>feels <em>considered</em></h2>
+    <p class="about-body">I design and build websites with a focus on brands that have something real to say, small businesses, makers, and creators who want their digital presence to match the care they put into their work. Every layout is hand-coded, every choice intentional.</p>
+    <div class="about-skills">
+      <div class="skill-item">
+        <div class="skill-num">100%</div>
+        <div class="skill-label">Custom code</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">0</div>
+        <div class="skill-label">Templates used</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">2 Weeks</div>
+        <div class="skill-label">Avg. project time</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-num">✓</div>
+        <div class="skill-label">Responsive & mobile</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right reveal reveal-d2">
+    <div class="about-card">
+      <div class="about-card-label">Design Philosophy</div>
+      <div class="about-card-text">"Great design for a brand rooted in craft should feel just as considered as the product itself — every choice intentional, nothing arbitrary."</div>
+    </div>
+    <div class="about-card" style="margin-top:2px;">
+      <div class="about-card-label">Built With</div>
+      <div class="about-tools">
+        <span class="tool-tag">HTML5</span>
+        <span class="tool-tag">CSS3</span>
+        <span class="tool-tag">Vanilla JS</span>
+        <span class="tool-tag">SVG Illustration</span>
+        <span class="tool-tag">Responsive Design</span>
+        <span class="tool-tag">CSS Grid</span>
+        <span class="tool-tag">CSS Animations</span>
+        <span class="tool-tag">No Frameworks</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <p class="sec-label">Contact</p>
+    <h2 class="contact-h2">Let's build<br>something <em>beautiful</em></h2>
+    <p class="contact-body">Whether you're a brand looking for a site that truly reflects your craft, or you'd like to talk through a project — I'd love to hear from you.</p>
+    <a href="mailto:hello@kisanthk.com" class="contact-btn">Start a Conversation</a>
+  </div>
+  <div class="contact-right reveal reveal-d1">
+    <div class="contact-detail">
+      <div class="cd-item">
+        <div class="cd-icon">
+          <svg viewBox="0 0 16 16"><path d="M8 1a4 4 0 100 8A4 4 0 008 1zM2 14c0-2.21 2.686-4 6-4s6 1.79 6 4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cd-label">Designer</div>
+          <div class="cd-value">Kisanth</div>
+        </div>
+      </div>
+      <div class="cd-item">
+        <div class="cd-icon">
+          <svg viewBox="0 0 16 16"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM2 14c0-2.5 2.7-4 6-4s6 1.5 6 4" stroke-linecap="round"/><path d="M13 2l2 2-2 2M13 4H8" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cd-label">Based in</div>
+          <div class="cd-value">Ontario, Canada</div>
+        </div>
+      </div>
+      <div class="cd-item">
+        <div class="cd-icon">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="cd-label">Response time</div>
+          <div class="cd-value">Within 24 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><em>Kisanth</em> </div>
+  <span class="footer-copy">© 2025 · All work original</span>
+  <div class="footer-links">
+    <a href="https://kisanthk.github.io/Layout-3/" target="_blank">Layout 3 ↗</a>
+    <a href="https://kisanthk.github.io/Layout-4/" target="_blank">Layout 4 ↗</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+reveals.forEach(el => ro.observe(el));
+window.addEventListener('load', () => {
+  reveals.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if(r.top < window.innerHeight) el.classList.add('in');
+  });
+});
+</script>
+</body>
+</html>
