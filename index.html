@@ -28,7 +28,61 @@
   --fd:'Cormorant Garamond',Georgia,serif;
   --fb:'Outfit',sans-serif;
 }
+.back-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  text-decoration: none !important;
+  color: var(--ink3) !important;
+  font-size: 10px !important;
+  letter-spacing: 1.8px !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  white-space: nowrap !important;
+  transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease !important;
+  opacity: 0.9 !important;
+}
 
+.back-link:hover {
+  color: var(--sage) !important;
+  transform: translateX(-2px) !important;
+  opacity: 1 !important;
+}
+
+.back-arrow {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  color: var(--sage) !important;
+}
+
+.mobile-back-link {
+  color: var(--sage) !important;
+  font-weight: 500 !important;
+  margin-bottom: 6px !important;
+  border-bottom: 0.5px solid var(--line) !important;
+  padding-bottom: 12px !important;
+}
+
+@media (max-width: 768px) {
+  .back-link {
+    display: none !important;
+  }
+
+  nav {
+    gap: 12px !important;
+  }
+}
+  nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 36px !important;
+  height: 54px !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: var(--sand) !important;
+  position: relative !important;
+  gap: 18px !important;
+}
 html{scroll-behavior:smooth}
 body{font-family:var(--fb);background:var(--cream);color:var(--ink);overflow-x:hidden}
 
@@ -558,7 +612,10 @@ footer{
 </style>
 </head>
 <body>
-
+<a href="https://kisanthk.github.io/Kisanth-s-Website-/" class="back-link">
+  <span class="back-arrow">←</span>
+  <span>Back to Portfolio</span>
+</a>
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
